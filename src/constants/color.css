@@ -1,0 +1,13 @@
+:root {
+    accent-color: var(--clr-accent);
+
+    --clr-bg: #f7f4ee;
+    --clr-bg-accent: rgba(159, 75, 46, 0.1);
+    --clr-surface: #fffdf9;
+    --clr-surface-elevated: color-mix(in srgb, var(--clr-surface) 88%, white);
+    --clr-text: #1f1d1a;
+    --clr-text-muted: #66605a;
+    --clr-border: #d9d1c7;
+    --clr-accent: #9f4b2e;
+    --shadow-surface: 0 24px 48px rgba(31, 29, 26, 0.08);
+}

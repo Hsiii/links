@@ -1,0 +1,64 @@
+@import '../constants/color.css';
+@import '../constants/font.css';
+
+/* Keep global.css for resets, tokens, and app shell. Put component CSS next to
+   its component, like components/Nav.tsx with components/Nav.css. */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: var(--clr-bg);
+    color: var(--clr-text);
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    font: var(--font-body-md);
+    line-height: 1.5;
+    background-color: var(--clr-bg);
+}
+
+a {
+    color: inherit;
+}
+
+:focus-visible {
+    outline: calc(var(--space-16) / 8) solid var(--clr-accent);
+    outline-offset: calc(var(--space-16) / 8);
+}
+
+.app {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: var(--space-32) var(--space-24);
+}
+
+.app__content {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-16);
+    width: fit-content;
+    max-width: 100%;
+    text-align: center;
+}
+
+.app__eyebrow {
+    color: var(--clr-text-muted);
+    font: var(--font-label);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.app__title {
+    font: var(--font-display);
+}
+
+.app__description {
+    color: var(--clr-text-muted);
+}
