@@ -5,7 +5,7 @@ export default [
     ...completeConfigBase,
 
     {
-        ignores: ['.next/**', 'dist/**', 'node_modules/**'],
+        ignores: ['.next/**', 'dist/**', 'next-env.d.ts', 'node_modules/**'],
     },
 
     {

@@ -4,8 +4,8 @@ import type { Metadata } from 'next';
 import './global.css';
 
 export const metadata: Metadata = {
-    title: 'hsichen.dev',
-    description: 'Created from create-hsi-app.',
+    title: 'Hsi Chen links',
+    description: 'A simple link tree for Hsi Chen.',
 };
 
 interface RootLayoutProps {

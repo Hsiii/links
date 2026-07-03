@@ -13,6 +13,8 @@
 html {
     background-color: var(--clr-bg);
     color: var(--clr-text);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 body {
@@ -35,30 +37,196 @@ a {
 .app {
     min-height: 100vh;
     display: grid;
-    place-items: center;
-    padding: var(--space-32) var(--space-24);
+    align-items: start;
+    padding: var(--space-48) var(--space-16);
 }
 
-.app__content {
+.linktree {
+    display: grid;
+    gap: var(--space-24);
+    width: min(100%, var(--size-content-max));
+    margin: 0 auto;
+}
+
+.profile {
     display: grid;
     justify-items: center;
     gap: var(--space-16);
-    width: fit-content;
-    max-width: 100%;
     text-align: center;
 }
 
-.app__eyebrow {
+.profile__avatar {
+    width: var(--size-avatar);
+    height: var(--size-avatar);
+    border-radius: 50%;
+    box-shadow: var(--shadow-avatar);
+    outline: var(--size-border-1) solid var(--clr-image-outline);
+}
+
+.profile__copy {
+    display: grid;
+    gap: var(--space-4);
+}
+
+.profile__eyebrow,
+.maybe__title {
     color: var(--clr-text-muted);
     font: var(--font-label);
-    letter-spacing: 0.08em;
+    letter-spacing: 0;
     text-transform: uppercase;
 }
 
-.app__title {
+.profile__title {
     font: var(--font-display);
+    text-wrap: balance;
 }
 
-.app__description {
+.profile__description {
     color: var(--clr-text-muted);
+    text-wrap: pretty;
+}
+
+.social-list {
+    display: grid;
+    gap: var(--space-8);
+}
+
+.social-link {
+    display: grid;
+    grid-template-columns: var(--size-hit-area) 1fr auto;
+    align-items: center;
+    gap: var(--space-12);
+    min-height: var(--size-link-row);
+    padding: var(--space-12);
+    color: var(--clr-text);
+    text-decoration: none;
+    background-color: var(--clr-surface);
+    border-radius: var(--radius-8);
+    box-shadow: var(--shadow-surface);
+    transition-duration: 180ms;
+    transition-property: background-color, box-shadow, transform;
+    transition-timing-function: var(--ease-out);
+}
+
+.social-link:hover {
+    background-color: var(--clr-surface-elevated);
+    box-shadow: var(--shadow-surface-hover);
+    transform: translateY(calc(var(--space-4) * -1));
+}
+
+.social-link:active {
+    transform: scale(0.96);
+}
+
+.social-link__icon {
+    display: grid;
+    place-items: center;
+    width: var(--size-hit-area);
+    height: var(--size-hit-area);
+    color: var(--link-accent);
+    background-color: var(--link-accent-soft);
+    border-radius: var(--radius-8);
+}
+
+.social-link__copy {
+    display: grid;
+    gap: var(--space-4);
+    min-width: 0;
+}
+
+.social-link__label {
+    font: var(--font-link);
+}
+
+.social-link__note {
+    color: var(--clr-text-muted);
+    font: var(--font-caption);
+}
+
+.social-link__arrow {
+    color: var(--clr-text-faint);
+    transition-duration: 180ms;
+    transition-property: color, transform;
+    transition-timing-function: var(--ease-out);
+}
+
+.social-link:hover .social-link__arrow {
+    color: var(--link-accent);
+    transform: rotate(24deg);
+}
+
+.social-link--blue {
+    --link-accent: var(--clr-blue);
+    --link-accent-soft: var(--clr-blue-soft);
+}
+
+.social-link--gold {
+    --link-accent: var(--clr-gold);
+    --link-accent-soft: var(--clr-gold-soft);
+}
+
+.social-link--green {
+    --link-accent: var(--clr-green);
+    --link-accent-soft: var(--clr-green-soft);
+}
+
+.social-link--ink {
+    --link-accent: var(--clr-ink);
+    --link-accent-soft: var(--clr-ink-soft);
+}
+
+.social-link--mint {
+    --link-accent: var(--clr-mint);
+    --link-accent-soft: var(--clr-mint-soft);
+}
+
+.social-link--pink {
+    --link-accent: var(--clr-pink);
+    --link-accent-soft: var(--clr-pink-soft);
+}
+
+.social-link--rose {
+    --link-accent: var(--clr-rose);
+    --link-accent-soft: var(--clr-rose-soft);
+}
+
+.social-link--sky {
+    --link-accent: var(--clr-sky);
+    --link-accent-soft: var(--clr-sky-soft);
+}
+
+.social-link--violet {
+    --link-accent: var(--clr-violet);
+    --link-accent-soft: var(--clr-violet-soft);
+}
+
+.maybe {
+    display: grid;
+    gap: var(--space-12);
+    padding-top: var(--space-8);
+}
+
+.maybe__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-8);
+    list-style: none;
+}
+
+.maybe__item {
+    padding: var(--space-8) var(--space-12);
+    color: var(--clr-text-muted);
+    font: var(--font-caption);
+    background-color: var(--clr-surface-muted);
+    border-radius: var(--radius-8);
+}
+
+@media (min-width: 640px) {
+    .app {
+        padding: var(--space-64) var(--space-24);
+    }
+
+    .linktree {
+        gap: var(--space-32);
+    }
 }
