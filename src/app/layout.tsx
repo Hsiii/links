@@ -4,8 +4,11 @@ import type { Metadata } from 'next';
 import './global.css';
 
 export const metadata: Metadata = {
-    title: 'Hsi Chen links',
+    title: 'Hsi | Links',
     description: 'A simple link tree for Hsi Chen.',
+    icons: {
+        icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    },
 };
 
 interface RootLayoutProps {
