@@ -1,6 +1,8 @@
 import type { JSX } from 'react';
 import Image from 'next/image';
 
+import { ShaderBackground } from '@/components/ShaderBackground';
+
 interface SocialLink {
     readonly label: string;
     readonly href: string;
@@ -92,6 +94,7 @@ const socialLinks: readonly SocialLink[] = [
 export function App(): JSX.Element {
     return (
         <main className='app'>
+            <ShaderBackground />
             <div className='linktree'>
                 <header className='identity'>
                     <Image

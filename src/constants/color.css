@@ -32,5 +32,11 @@
         var(--clr-bg) 42%,
         var(--clr-page-sago-blue) 100%
     );
+    --gradient-page-softener: linear-gradient(
+        180deg,
+        rgba(247, 244, 238, 0.72) 0%,
+        rgba(247, 244, 238, 0.52) 48%,
+        rgba(247, 244, 238, 0.16) 100%
+    );
     --ease-out: cubic-bezier(0.2, 0, 0, 1);
 }
