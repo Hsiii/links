@@ -41,7 +41,8 @@ a {
     display: grid;
     align-items: start;
     overflow: hidden;
-    padding: var(--space-48) var(--space-16);
+    padding: var(--space-48) var(--space-16)
+        calc(var(--space-32) + var(--space-4));
 }
 
 .app::before {
@@ -96,6 +97,18 @@ a {
     max-width: var(--measure-copy);
     color: var(--clr-text-muted);
     text-wrap: pretty;
+}
+
+.identity--hsi .identity-card__description {
+    margin-top: calc(var(--space-12) * -1);
+}
+
+.identity--sago .identity-card__description {
+    margin-bottom: calc((var(--space-8) + var(--space-12)) / -2);
+}
+
+.identity--sago .identity-card__avatar {
+    margin-top: calc(var(--space-12) / 2);
 }
 
 .social-list {

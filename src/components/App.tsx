@@ -96,7 +96,7 @@ export function App(): JSX.Element {
         <main className='app'>
             <ShaderBackground />
             <div className='linktree'>
-                <header className='identity'>
+                <header className='identity identity--hsi'>
                     <Image
                         alt='Hsi Chen'
                         className='identity-card__avatar'
@@ -140,7 +140,7 @@ export function App(): JSX.Element {
                     )}
                 </nav>
 
-                <footer className='identity'>
+                <footer className='identity identity--sago'>
                     <p className='identity-card__description'>
                         My creative side for art, music, and games.
                     </p>
