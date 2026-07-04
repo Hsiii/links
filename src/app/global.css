@@ -68,8 +68,7 @@ a {
     gap: var(--space-4);
 }
 
-.profile__eyebrow,
-.maybe__title {
+.profile__eyebrow {
     color: var(--clr-text-muted);
     font: var(--font-label);
     letter-spacing: 0;
@@ -160,11 +159,6 @@ a {
     --link-accent-soft: var(--clr-blue-soft);
 }
 
-.social-link--gold {
-    --link-accent: var(--clr-gold);
-    --link-accent-soft: var(--clr-gold-soft);
-}
-
 .social-link--green {
     --link-accent: var(--clr-green);
     --link-accent-soft: var(--clr-green-soft);
@@ -198,27 +192,6 @@ a {
 .social-link--violet {
     --link-accent: var(--clr-violet);
     --link-accent-soft: var(--clr-violet-soft);
-}
-
-.maybe {
-    display: grid;
-    gap: var(--space-12);
-    padding-top: var(--space-8);
-}
-
-.maybe__list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-8);
-    list-style: none;
-}
-
-.maybe__item {
-    padding: var(--space-8) var(--space-12);
-    color: var(--clr-text-muted);
-    font: var(--font-caption);
-    background-color: var(--clr-surface-muted);
-    border-radius: var(--radius-8);
 }
 
 @media (min-width: 640px) {

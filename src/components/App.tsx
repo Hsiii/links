@@ -1,13 +1,15 @@
 import type { JSX } from 'react';
 import {
     AtSign,
+    BriefcaseBusiness,
     Camera,
     Code2,
     ExternalLink,
     Gamepad2,
     ImageIcon,
+    Joystick,
     MessageCircle,
-    MountainSnow,
+    MessagesSquare,
     Music2,
     UsersRound,
 } from 'lucide-react';
@@ -16,7 +18,6 @@ import Image from 'next/image';
 
 type LinkTone =
     | 'blue'
-    | 'gold'
     | 'green'
     | 'ink'
     | 'mint'
@@ -37,28 +38,35 @@ const socialLinks: readonly SocialLink[] = [
     {
         label: 'Facebook',
         note: 'people',
-        href: 'https://www.facebook.com/',
+        href: 'https://www.facebook.com/profile.php?id=100011113621038',
         Icon: UsersRound,
         tone: 'blue',
     },
     {
         label: 'Instagram',
         note: 'photos',
-        href: 'https://www.instagram.com/',
+        href: 'https://www.instagram.com/ccc_hsi/',
         Icon: Camera,
         tone: 'pink',
     },
     {
+        label: 'Threads',
+        note: 'posts',
+        href: 'https://www.threads.com/@ccc_hsi',
+        Icon: MessagesSquare,
+        tone: 'ink',
+    },
+    {
         label: 'Discord',
         note: 'chat',
-        href: 'https://discord.com/',
+        href: 'discord://-/users/917446775873343600',
         Icon: MessageCircle,
         tone: 'violet',
     },
     {
         label: 'Twitter',
         note: 'posts',
-        href: 'https://x.com/',
+        href: 'https://x.com/OrangeSago',
         Icon: AtSign,
         tone: 'sky',
     },
@@ -72,55 +80,39 @@ const socialLinks: readonly SocialLink[] = [
     {
         label: 'Pixiv',
         note: 'art',
-        href: 'https://www.pixiv.net/',
+        href: 'https://www.pixiv.net/users/64764125',
         Icon: ImageIcon,
         tone: 'rose',
     },
     {
         label: 'TETR.IO',
         note: 'stacking',
-        href: 'https://tetr.io/',
+        href: 'https://ch.tetr.io/u/sagocream',
         Icon: Gamepad2,
         tone: 'green',
     },
     {
         label: 'Spotify',
         note: 'music',
-        href: 'https://open.spotify.com/',
+        href: 'https://open.spotify.com/user/31bturepoosptp5xv2vln3nqz7ca',
         Icon: Music2,
         tone: 'mint',
     },
     {
-        label: 'Slopes',
-        note: 'snow days',
-        href: 'https://getslopes.com/',
-        Icon: MountainSnow,
-        tone: 'gold',
+        label: 'LinkedIn',
+        note: 'work',
+        href: 'https://www.linkedin.com/in/its-hsi-chen/',
+        Icon: BriefcaseBusiness,
+        tone: 'blue',
+    },
+    {
+        label: 'Steam',
+        note: 'games',
+        href: 'https://steamcommunity.com/id/sagocream/',
+        Icon: Joystick,
+        tone: 'ink',
     },
 ];
-
-const maybeLinks = [
-    'Bluesky',
-    'Threads',
-    'Mastodon',
-    'YouTube',
-    'Twitch',
-    'Steam',
-    'LinkedIn',
-    'Letterboxd',
-    'TikTok',
-    'Reddit',
-    'SoundCloud',
-    'Tumblr',
-    'Itch.io',
-    'Ko-fi',
-    'Patreon',
-    'Last.fm',
-    'AniList',
-    'MyAnimeList',
-    'Strava',
-    'Figma Community',
-] as const;
 
 export function App(): JSX.Element {
     return (
@@ -139,7 +131,7 @@ export function App(): JSX.Element {
                         <p className='profile__eyebrow'>hsichen.dev</p>
                         <h1 className='profile__title'>Hsi Chen</h1>
                         <p className='profile__description'>
-                            Places I post, play, draw, listen, and ski.
+                            Places I post, play, draw, listen, and connect.
                         </p>
                     </div>
                 </header>
@@ -173,19 +165,6 @@ export function App(): JSX.Element {
                         </a>
                     ))}
                 </nav>
-
-                <section aria-labelledby='maybe-title' className='maybe'>
-                    <h2 className='maybe__title' id='maybe-title'>
-                        Might also have
-                    </h2>
-                    <ul className='maybe__list'>
-                        {maybeLinks.map((link) => (
-                            <li className='maybe__item' key={link}>
-                                {link}
-                            </li>
-                        ))}
-                    </ul>
-                </section>
             </div>
         </main>
     );
