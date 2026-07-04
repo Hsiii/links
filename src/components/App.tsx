@@ -138,10 +138,10 @@ export function App(): JSX.Element {
                 </nav>
 
                 <footer className='identity'>
-                    <h2 className='identity-card__title'>Orange Sago Cream</h2>
                     <p className='identity-card__description'>
                         My creative side for art, music, and games.
                     </p>
+                    <h2 className='identity-card__title'>Orange Sago Cream</h2>
                     <Image
                         alt='Orange Sago Cream'
                         className='identity-card__avatar'
