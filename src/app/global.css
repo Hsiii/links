@@ -12,11 +12,8 @@
 
 html {
     color: var(--clr-text);
-    background-attachment: fixed;
     background-color: var(--clr-bg);
     background-image: var(--gradient-page-bleed);
-    background-repeat: no-repeat;
-    background-size: 100% 100vh;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
