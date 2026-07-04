@@ -91,69 +91,102 @@ const socialLinks: readonly SocialLink[] = [
     },
 ];
 
+const webProfileUrls = socialLinks
+    .map(({ href }) => href)
+    .filter((href) => href.startsWith('https://'));
+
+const profileStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    'mainEntity': {
+        '@type': 'Person',
+        'name': 'Hsi Chen',
+        'alternateName': ['Hsiii', 'ccc_hsi', 'OrangeSago', 'sagocream'],
+        'description': 'Design-focused software developer.',
+        'image': 'https://links.hsichen.dev/profile/hsi.png',
+        'url': 'https://links.hsichen.dev',
+        'sameAs': webProfileUrls,
+    },
+} as const;
+
+const profileStructuredDataJson = JSON.stringify(
+    profileStructuredData
+).replaceAll('<', String.raw`\u003c`);
+
 export function App(): JSX.Element {
     return (
-        <main className='app'>
-            <ShaderBackground />
-            <div className='linktree'>
-                <header className='identity identity--hsi'>
-                    <Image
-                        alt='Hsi Chen'
-                        className='identity-card__avatar'
-                        height={104}
-                        priority
-                        src='/profile/hsi.png'
-                        width={104}
-                    />
-                    <h1 className='identity-card__title'>Hsi Chen</h1>
-                    <p className='identity-card__description'>
-                        Design-focused software developer.
-                    </p>
-                </header>
+        <>
+            <script
+                dangerouslySetInnerHTML={{ __html: profileStructuredDataJson }}
+                type='application/ld+json'
+            />
+            <main className='app'>
+                <ShaderBackground />
+                <div className='linktree'>
+                    <header className='identity identity--hsi'>
+                        <Image
+                            alt='Hsi Chen'
+                            className='identity-card__avatar'
+                            height={104}
+                            priority
+                            src='/profile/hsi.png'
+                            width={104}
+                        />
+                        <h1 className='identity-card__title'>Hsi Chen</h1>
+                        <p className='identity-card__description'>
+                            Design-focused software developer.
+                        </p>
+                    </header>
 
-                <nav aria-label='Social links' className='social-list'>
-                    {socialLinks.map(
-                        ({ label, href, logoAlt, logoSrc, toneClass }) => (
-                            <a
-                                className={`social-link ${toneClass}`}
-                                href={href}
-                                key={label}
-                                rel='noreferrer noopener'
-                                target='_blank'
-                            >
-                                <span aria-hidden className='social-link__icon'>
-                                    <Image
-                                        alt={logoAlt}
-                                        className='social-link__logo'
-                                        height={28}
-                                        src={logoSrc}
-                                        width={28}
-                                    />
-                                </span>
-                                <span className='social-link__copy'>
-                                    <span className='social-link__label'>
-                                        {label}
+                    <nav aria-label='Social links' className='social-list'>
+                        {socialLinks.map(
+                            ({ label, href, logoAlt, logoSrc, toneClass }) => (
+                                <a
+                                    className={`social-link ${toneClass}`}
+                                    href={href}
+                                    key={label}
+                                    rel='noreferrer noopener'
+                                    target='_blank'
+                                >
+                                    <span
+                                        aria-hidden
+                                        className='social-link__icon'
+                                    >
+                                        <Image
+                                            alt={logoAlt}
+                                            className='social-link__logo'
+                                            height={28}
+                                            src={logoSrc}
+                                            width={28}
+                                        />
                                     </span>
-                                </span>
-                            </a>
-                        )
-                    )}
-                </nav>
+                                    <span className='social-link__copy'>
+                                        <span className='social-link__label'>
+                                            {label}
+                                        </span>
+                                    </span>
+                                </a>
+                            )
+                        )}
+                    </nav>
 
-                <footer className='identity identity--sago'>
-                    <p className='identity-card__description'>
-                        My creative side for art, music, and games.
-                    </p>
-                    <h2 className='identity-card__title'>Orange Sago Cream</h2>
-                    <Image
-                        alt='Orange Sago Cream'
-                        className='identity-card__avatar'
-                        height={104}
-                        src='/favicon.png'
-                        width={104}
-                    />
-                </footer>
-            </div>
-        </main>
+                    <footer className='identity identity--sago'>
+                        <p className='identity-card__description'>
+                            My creative side for art, music, and games.
+                        </p>
+                        <h2 className='identity-card__title'>
+                            Orange Sago Cream
+                        </h2>
+                        <Image
+                            alt='Orange Sago Cream'
+                            className='identity-card__avatar'
+                            height={104}
+                            src='/favicon.png'
+                            width={104}
+                        />
+                    </footer>
+                </div>
+            </main>
+        </>
     );
 }
