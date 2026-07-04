@@ -104,7 +104,7 @@ a {
 }
 
 .identity--sago .identity-card__description {
-    margin-bottom: calc((var(--space-8) + var(--space-12)) / -2);
+    margin-bottom: calc(var(--space-8) * -1);
 }
 
 .identity--sago .identity-card__avatar {
