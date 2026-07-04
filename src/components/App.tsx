@@ -42,13 +42,6 @@ const socialLinks: readonly SocialLink[] = [
         tone: 'ink',
     },
     {
-        label: 'Discord',
-        href: 'discord://-/users/917446775873343600',
-        logoAlt: 'Discord',
-        logoSrc: '/svgl/discord.svg',
-        tone: 'violet',
-    },
-    {
         label: 'LinkedIn',
         href: 'https://www.linkedin.com/in/its-hsi-chen/',
         logoAlt: 'LinkedIn',
@@ -77,11 +70,11 @@ const socialLinks: readonly SocialLink[] = [
         tone: 'rose',
     },
     {
-        label: 'TETR.IO',
-        href: 'https://ch.tetr.io/u/sagocream',
-        logoAlt: 'TETR.IO',
-        logoSrc: '/svgl/tetrio.svg',
-        tone: 'green',
+        label: 'Discord',
+        href: 'discord://-/users/917446775873343600',
+        logoAlt: 'Discord',
+        logoSrc: '/svgl/discord.svg',
+        tone: 'violet',
     },
     {
         label: 'Spotify',
@@ -96,6 +89,13 @@ const socialLinks: readonly SocialLink[] = [
         logoAlt: 'Steam',
         logoSrc: '/svgl/steam.svg',
         tone: 'ink',
+    },
+    {
+        label: 'TETR.IO',
+        href: 'https://ch.tetr.io/u/sagocream',
+        logoAlt: 'TETR.IO',
+        logoSrc: '/svgl/tetrio.svg',
+        tone: 'green',
     },
 ];
 
