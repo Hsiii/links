@@ -12,8 +12,11 @@
 
 html {
     color: var(--clr-text);
-    background-color: var(--clr-page-sago-blue);
+    background-attachment: fixed;
+    background-color: var(--clr-bg);
     background-image: var(--gradient-page-bleed);
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
@@ -23,8 +26,6 @@ body {
     min-height: 100vh;
     font: var(--font-body-md);
     line-height: 1.5;
-    background-color: var(--clr-page-sago-blue);
-    background-image: var(--gradient-page-bleed);
 }
 
 a {
@@ -43,8 +44,6 @@ a {
     display: grid;
     align-items: start;
     overflow: hidden;
-    background-color: var(--clr-page-sago-blue);
-    background-image: var(--gradient-page-bleed);
     padding: var(--space-48) var(--space-16)
         calc(var(--space-32) + var(--space-4));
 }
