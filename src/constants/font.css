@@ -5,6 +5,7 @@
     --fs-label: 0.75rem;
     --fs-caption: 0.875rem;
     --fs-body: 1rem;
+    --fs-link: 1.125rem;
     --fs-title: 3rem;
 
     --fw-medium: 500;
@@ -14,7 +15,7 @@
     --font-label: var(--fw-semibold) var(--fs-label) / 1.2 var(--ff-body);
     --font-caption: var(--fw-medium) var(--fs-caption) / 1.35 var(--ff-body);
     --font-body-md: var(--fw-medium) var(--fs-body) / 1.6 var(--ff-body);
-    --font-link: var(--fw-bold) var(--fs-body) / 1.2 var(--ff-body);
+    --font-link: var(--fw-bold) var(--fs-link) / 1 var(--ff-body);
     --font-display: var(--fw-bold) var(--fs-title) / 0.96 var(--ff-display);
 
     --space-4: 4px;
@@ -33,7 +34,7 @@
     --size-content-max: 480px;
     --size-hit-area: 40px;
     --size-link-row: 64px;
-    --size-link-logo: 24px;
+    --size-link-logo: 28px;
     --measure-copy: 36ch;
 
     --radius-8: 8px;

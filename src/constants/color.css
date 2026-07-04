@@ -4,8 +4,10 @@
     --clr-bg: #f7f4ee;
     --clr-page-sago-blue: #8ed8f4;
     --clr-surface: #ffffff;
+    --clr-surface-glass: rgba(255, 255, 255, 0.72);
     --clr-surface-muted: #edf2f1;
     --clr-surface-elevated: #fbfdfc;
+    --clr-surface-highlight: rgba(255, 255, 255, 0.72);
     --clr-text: #15191d;
     --clr-text-muted: #5f6b73;
     --clr-border: #dce5e2;
@@ -23,8 +25,10 @@
     --clr-social-steam-soft: rgba(23, 26, 33, 0.08);
     --clr-social-tetrio-soft: rgba(223, 78, 170, 0.14);
     --shadow-surface:
+        inset 0 1px var(--clr-surface-highlight),
         0 1px 2px rgba(21, 25, 29, 0.08), 0 12px 32px rgba(21, 25, 29, 0.06);
     --shadow-surface-hover:
+        inset 0 1px var(--clr-surface-highlight),
         0 2px 4px rgba(21, 25, 29, 0.1), 0 16px 40px rgba(21, 25, 29, 0.08);
     --gradient-page: linear-gradient(
         180deg,

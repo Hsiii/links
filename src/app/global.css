@@ -127,7 +127,9 @@ a {
     padding: var(--space-12);
     color: var(--clr-text);
     text-decoration: none;
-    background-color: var(--clr-surface);
+    background-color: var(--clr-surface-glass);
+    -webkit-backdrop-filter: blur(var(--space-16)) saturate(1.08);
+    backdrop-filter: blur(var(--space-16)) saturate(1.08);
     border-radius: var(--radius-8);
     box-shadow: var(--shadow-surface);
     overflow: hidden;
@@ -231,6 +233,8 @@ a {
 }
 
 .social-link__label {
+    display: inline-flex;
+    align-items: center;
     font: var(--font-link);
 }
 

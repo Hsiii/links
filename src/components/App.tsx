@@ -125,9 +125,9 @@ export function App(): JSX.Element {
                                     <Image
                                         alt={logoAlt}
                                         className='social-link__logo'
-                                        height={24}
+                                        height={28}
                                         src={logoSrc}
-                                        width={24}
+                                        width={28}
                                     />
                                 </span>
                                 <span className='social-link__copy'>
