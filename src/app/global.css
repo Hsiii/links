@@ -43,6 +43,8 @@ a {
     display: grid;
     align-items: start;
     overflow: hidden;
+    background-color: var(--clr-page-sago-blue);
+    background-image: var(--gradient-page-bleed);
     padding: var(--space-48) var(--space-16)
         calc(var(--space-32) + var(--space-4));
 }
@@ -64,6 +66,7 @@ a {
     height: 100%;
     min-height: 100vh;
     background: var(--gradient-page);
+    opacity: var(--opacity-page-shader);
     pointer-events: none;
 }
 
