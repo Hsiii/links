@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     icons: {
         icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
     },
+    verification: {
+        google: 'U0MZAhyxx3hG4euT-pHfkimkVmT8oOu0dAlgD0OFoaQ',
+    },
 };
 
 interface RootLayoutProps {
