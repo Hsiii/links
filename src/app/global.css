@@ -128,18 +128,11 @@ a {
 }
 
 .social-link__copy {
-    display: grid;
-    gap: var(--space-4);
     min-width: 0;
 }
 
 .social-link__label {
     font: var(--font-link);
-}
-
-.social-link__note {
-    color: var(--clr-text-muted);
-    font: var(--font-caption);
 }
 
 .social-link--blue {

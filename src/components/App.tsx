@@ -13,7 +13,6 @@ type LinkTone =
 
 interface SocialLink {
     readonly label: string;
-    readonly note: string;
     readonly href: string;
     readonly logoAlt: string;
     readonly logoSrc: string;
@@ -23,7 +22,6 @@ interface SocialLink {
 const socialLinks: readonly SocialLink[] = [
     {
         label: 'Facebook',
-        note: 'people',
         href: 'https://www.facebook.com/profile.php?id=100011113621038',
         logoAlt: 'Facebook',
         logoSrc: '/svgl/facebook.svg',
@@ -31,7 +29,6 @@ const socialLinks: readonly SocialLink[] = [
     },
     {
         label: 'Instagram',
-        note: 'photos',
         href: 'https://www.instagram.com/ccc_hsi/',
         logoAlt: 'Instagram',
         logoSrc: '/svgl/instagram.svg',
@@ -39,7 +36,6 @@ const socialLinks: readonly SocialLink[] = [
     },
     {
         label: 'Threads',
-        note: 'posts',
         href: 'https://www.threads.com/@ccc_hsi',
         logoAlt: 'Threads',
         logoSrc: '/svgl/threads.svg',
@@ -47,31 +43,34 @@ const socialLinks: readonly SocialLink[] = [
     },
     {
         label: 'Discord',
-        note: 'chat',
         href: 'discord://-/users/917446775873343600',
         logoAlt: 'Discord',
         logoSrc: '/svgl/discord.svg',
         tone: 'violet',
     },
     {
-        label: 'Twitter',
-        note: 'posts',
-        href: 'https://x.com/OrangeSago',
-        logoAlt: 'X',
-        logoSrc: '/svgl/x.svg',
-        tone: 'sky',
+        label: 'LinkedIn',
+        href: 'https://www.linkedin.com/in/its-hsi-chen/',
+        logoAlt: 'LinkedIn',
+        logoSrc: '/svgl/linkedin.svg',
+        tone: 'blue',
     },
     {
         label: 'GitHub',
-        note: 'code',
         href: 'https://github.com/Hsiii',
         logoAlt: 'GitHub',
         logoSrc: '/svgl/github.svg',
         tone: 'ink',
     },
     {
+        label: 'Twitter',
+        href: 'https://x.com/OrangeSago',
+        logoAlt: 'X',
+        logoSrc: '/svgl/x.svg',
+        tone: 'sky',
+    },
+    {
         label: 'Pixiv',
-        note: 'art',
         href: 'https://www.pixiv.net/users/64764125',
         logoAlt: 'Pixiv',
         logoSrc: '/svgl/pixiv.jpeg',
@@ -79,7 +78,6 @@ const socialLinks: readonly SocialLink[] = [
     },
     {
         label: 'TETR.IO',
-        note: 'stacking',
         href: 'https://ch.tetr.io/u/sagocream',
         logoAlt: 'TETR.IO',
         logoSrc: '/svgl/tetrio.svg',
@@ -87,23 +85,13 @@ const socialLinks: readonly SocialLink[] = [
     },
     {
         label: 'Spotify',
-        note: 'music',
         href: 'https://open.spotify.com/user/31bturepoosptp5xv2vln3nqz7ca',
         logoAlt: 'Spotify',
         logoSrc: '/svgl/spotify.svg',
         tone: 'mint',
     },
     {
-        label: 'LinkedIn',
-        note: 'work',
-        href: 'https://www.linkedin.com/in/its-hsi-chen/',
-        logoAlt: 'LinkedIn',
-        logoSrc: '/svgl/linkedin.svg',
-        tone: 'blue',
-    },
-    {
         label: 'Steam',
-        note: 'games',
         href: 'https://steamcommunity.com/id/sagocream/',
         logoAlt: 'Steam',
         logoSrc: '/svgl/steam.svg',
@@ -134,7 +122,7 @@ export function App(): JSX.Element {
 
                 <nav aria-label='Social links' className='social-list'>
                     {socialLinks.map(
-                        ({ label, note, href, logoAlt, logoSrc, tone }) => (
+                        ({ label, href, logoAlt, logoSrc, tone }) => (
                             <a
                                 className={`social-link social-link--${tone}`}
                                 href={href}
@@ -154,9 +142,6 @@ export function App(): JSX.Element {
                                 <span className='social-link__copy'>
                                     <span className='social-link__label'>
                                         {label}
-                                    </span>
-                                    <span className='social-link__note'>
-                                        {note}
                                     </span>
                                 </span>
                             </a>
