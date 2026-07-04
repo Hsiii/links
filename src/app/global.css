@@ -66,7 +66,6 @@ a {
     height: 100%;
     min-height: 100vh;
     background: var(--gradient-page);
-    opacity: var(--opacity-page-shader);
     pointer-events: none;
 }
 

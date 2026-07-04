@@ -27,7 +27,6 @@
     --shadow-surface-hover:
         inset 0 1px var(--clr-surface-highlight),
         0 2px 4px rgba(21, 25, 29, 0.1), 0 16px 40px rgba(21, 25, 29, 0.08);
-    --opacity-page-shader: 0.36;
     --gradient-page-bleed: linear-gradient(
         180deg,
         var(--clr-bg) 0%,
