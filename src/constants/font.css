@@ -1,6 +1,9 @@
 :root {
     --ff-body: 'IBM Plex Sans', 'Avenir Next', 'Segoe UI', sans-serif;
     --ff-display: 'Iowan Old Style', 'Palatino Linotype', serif;
+    --ff-professional: 'Avenir Next', 'Segoe UI', sans-serif;
+    --ff-creative:
+        'Avenir Next Rounded', 'Trebuchet MS', 'Segoe UI', sans-serif;
 
     --fs-label: 0.75rem;
     --fs-caption: 0.875rem;
@@ -16,6 +19,10 @@
     --font-body-md: var(--fw-medium) var(--fs-body) / 1.6 var(--ff-body);
     --font-link: var(--fw-bold) var(--fs-body) / 1.2 var(--ff-body);
     --font-display: var(--fw-bold) var(--fs-title) / 0.96 var(--ff-display);
+    --font-display-professional: var(--fw-bold) var(--fs-title) / 0.96
+        var(--ff-professional);
+    --font-display-creative: var(--fw-bold) var(--fs-title) / 0.96
+        var(--ff-creative);
 
     --space-4: 4px;
     --space-8: 8px;
@@ -29,6 +36,7 @@
     --size-border-1: 1px;
     --size-outline: 2px;
     --size-avatar: 88px;
+    --size-profile-avatar: 104px;
     --size-content-max: 480px;
     --size-hit-area: 40px;
     --size-link-row: 64px;

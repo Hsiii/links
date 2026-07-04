@@ -103,21 +103,18 @@ export function App(): JSX.Element {
     return (
         <main className='app'>
             <div className='linktree'>
-                <header className='profile'>
+                <header className='identity-card identity-card--professional'>
                     <Image
-                        alt=''
-                        className='profile__avatar'
-                        height={88}
+                        alt='Hsi Chen'
+                        className='identity-card__avatar'
+                        height={104}
                         priority
-                        src='/favicon.png'
-                        width={88}
+                        src='/profile/hsi.png'
+                        width={104}
                     />
-                    <div className='profile__copy'>
-                        <h1 className='profile__title'>Hsi Chen</h1>
-                        <p className='profile__description'>
-                            Places I post, play, draw, listen, and connect.
-                        </p>
-                    </div>
+                    <h1 className='identity-card__title identity-card__title--professional'>
+                        Hsi Chen
+                    </h1>
                 </header>
 
                 <nav aria-label='Social links' className='social-list'>
@@ -148,6 +145,19 @@ export function App(): JSX.Element {
                         )
                     )}
                 </nav>
+
+                <footer className='identity-card identity-card--creative'>
+                    <h2 className='identity-card__title identity-card__title--creative'>
+                        Orange Sago Cream
+                    </h2>
+                    <Image
+                        alt='Orange Sago Cream'
+                        className='identity-card__avatar'
+                        height={104}
+                        src='/favicon.png'
+                        width={104}
+                    />
+                </footer>
             </div>
         </main>
     );
