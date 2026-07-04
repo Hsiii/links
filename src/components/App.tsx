@@ -103,7 +103,7 @@ export function App(): JSX.Element {
     return (
         <main className='app'>
             <div className='linktree'>
-                <header className='identity-card identity-card--professional'>
+                <header className='identity'>
                     <Image
                         alt='Hsi Chen'
                         className='identity-card__avatar'
@@ -112,9 +112,7 @@ export function App(): JSX.Element {
                         src='/profile/hsi.png'
                         width={104}
                     />
-                    <h1 className='identity-card__title identity-card__title--professional'>
-                        Hsi Chen
-                    </h1>
+                    <h1 className='identity-card__title'>Hsi Chen</h1>
                 </header>
 
                 <nav aria-label='Social links' className='social-list'>
@@ -146,10 +144,8 @@ export function App(): JSX.Element {
                     )}
                 </nav>
 
-                <footer className='identity-card identity-card--creative'>
-                    <h2 className='identity-card__title identity-card__title--creative'>
-                        Orange Sago Cream
-                    </h2>
+                <footer className='identity'>
+                    <h2 className='identity-card__title'>Orange Sago Cream</h2>
                     <Image
                         alt='Orange Sago Cream'
                         className='identity-card__avatar'

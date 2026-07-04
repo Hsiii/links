@@ -48,25 +48,12 @@ a {
     margin: 0 auto;
 }
 
-.identity-card {
+.identity {
     display: grid;
     justify-items: center;
     gap: var(--space-16);
-    padding: var(--space-24);
     text-align: center;
-    border-radius: var(--radius-8);
-    box-shadow: var(--shadow-surface);
-    overflow: hidden;
-}
-
-.identity-card--professional {
-    color: var(--clr-professional-text);
-    background: var(--gradient-card-professional);
-}
-
-.identity-card--creative {
-    color: var(--clr-creative-text);
-    background: var(--gradient-card-creative);
+    color: var(--clr-text);
 }
 
 .identity-card__avatar {
@@ -78,15 +65,8 @@ a {
 }
 
 .identity-card__title {
+    font: var(--font-display);
     text-wrap: balance;
-}
-
-.identity-card__title--professional {
-    font: var(--font-display-professional);
-}
-
-.identity-card__title--creative {
-    font: var(--font-display-creative);
 }
 
 .social-list {

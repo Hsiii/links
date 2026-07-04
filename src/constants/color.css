@@ -1,20 +1,11 @@
 :root {
     accent-color: var(--clr-accent);
 
-    --clr-bg: #f7f8f5;
-    --clr-page-professional: #e8f3f5;
-    --clr-page-middle: #fff9ed;
-    --clr-page-creative: #ffeaf4;
+    --clr-bg: #f7f4ee;
+    --clr-page-sago-blue: #8ed8f4;
     --clr-surface: #ffffff;
     --clr-surface-muted: #edf2f1;
     --clr-surface-elevated: #fbfdfc;
-    --clr-professional-card-start: #f8fbfb;
-    --clr-professional-card-end: #dfeef2;
-    --clr-professional-text: #17272e;
-    --clr-creative-card-start: #fff1bd;
-    --clr-creative-card-middle: #ffd3e3;
-    --clr-creative-card-end: #e6dbff;
-    --clr-creative-text: #7f3569;
     --clr-text: #15191d;
     --clr-text-muted: #5f6b73;
     --clr-border: #dce5e2;
@@ -42,20 +33,9 @@
         0 2px 4px rgba(21, 25, 29, 0.1), 0 16px 40px rgba(21, 25, 29, 0.08);
     --gradient-page: linear-gradient(
         180deg,
-        var(--clr-page-professional) 0%,
-        var(--clr-page-middle) 50%,
-        var(--clr-page-creative) 100%
-    );
-    --gradient-card-professional: linear-gradient(
-        145deg,
-        var(--clr-professional-card-start) 0%,
-        var(--clr-professional-card-end) 100%
-    );
-    --gradient-card-creative: linear-gradient(
-        145deg,
-        var(--clr-creative-card-start) 0%,
-        var(--clr-creative-card-middle) 54%,
-        var(--clr-creative-card-end) 100%
+        var(--clr-bg) 0%,
+        var(--clr-bg) 42%,
+        var(--clr-page-sago-blue) 100%
     );
     --ease-out: cubic-bezier(0.2, 0, 0, 1);
 }
