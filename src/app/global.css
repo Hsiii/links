@@ -11,8 +11,9 @@
 }
 
 html {
-    background: var(--gradient-page);
     color: var(--clr-text);
+    background-color: var(--clr-page-sago-blue);
+    background-image: var(--gradient-page);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
@@ -22,7 +23,8 @@ body {
     min-height: 100vh;
     font: var(--font-body-md);
     line-height: 1.5;
-    background: var(--gradient-page);
+    background-color: var(--clr-page-sago-blue);
+    background-image: var(--gradient-page);
 }
 
 a {
