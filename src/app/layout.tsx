@@ -7,6 +7,12 @@ const siteUrl = new URL('https://links.hsichen.dev');
 const siteTitle = 'Hsi Chen | Links';
 const siteDescription =
     'Links to Hsi Chen on GitHub, LinkedIn, Instagram, Threads, and other social profiles.';
+const previewImage = {
+    url: '/og.png',
+    width: 1200,
+    height: 630,
+    alt: 'Hsi Chen links preview',
+} as const;
 
 export const metadata: Metadata = {
     metadataBase: siteUrl,
@@ -23,12 +29,14 @@ export const metadata: Metadata = {
         description: siteDescription,
         url: '/',
         siteName: 'Hsi Chen Links',
+        images: [previewImage],
         type: 'profile',
     },
     twitter: {
-        card: 'summary',
+        card: 'summary_large_image',
         title: siteTitle,
         description: siteDescription,
+        images: [previewImage],
     },
     robots: {
         index: true,
