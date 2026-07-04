@@ -81,6 +81,8 @@ a {
 }
 
 .social-link {
+    position: relative;
+    isolation: isolate;
     display: grid;
     grid-template-columns: var(--size-hit-area) 1fr;
     align-items: center;
@@ -92,19 +94,86 @@ a {
     background-color: var(--clr-surface);
     border-radius: var(--radius-8);
     box-shadow: var(--shadow-surface);
+    overflow: hidden;
     transition-duration: 180ms;
-    transition-property: background-color, box-shadow, transform;
+    transition-property: box-shadow, transform;
     transition-timing-function: var(--ease-out);
 }
 
+.social-link::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: var(--social-link-tone, var(--clr-surface-muted));
+    border-radius: inherit;
+    content: '';
+    pointer-events: none;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition-duration: inherit;
+    transition-property: transform;
+    transition-timing-function: inherit;
+}
+
+.social-link > * {
+    position: relative;
+    z-index: 1;
+}
+
 .social-link:hover {
-    background-color: var(--clr-surface-elevated);
     box-shadow: var(--shadow-surface-hover);
-    transform: translateY(calc(var(--space-4) * -1));
+}
+
+.social-link:hover::before {
+    transform: scaleX(1);
 }
 
 .social-link:active {
     transform: scale(0.96);
+}
+
+.social-link--facebook {
+    --social-link-tone: var(--clr-social-facebook-soft);
+}
+
+.social-link--instagram {
+    --social-link-tone: var(--clr-social-instagram-soft);
+}
+
+.social-link--threads {
+    --social-link-tone: var(--clr-social-threads-soft);
+}
+
+.social-link--linkedin {
+    --social-link-tone: var(--clr-social-linkedin-soft);
+}
+
+.social-link--github {
+    --social-link-tone: var(--clr-social-github-soft);
+}
+
+.social-link--twitter {
+    --social-link-tone: var(--clr-social-twitter-soft);
+}
+
+.social-link--pixiv {
+    --social-link-tone: var(--clr-social-pixiv-soft);
+}
+
+.social-link--discord {
+    --social-link-tone: var(--clr-social-discord-soft);
+}
+
+.social-link--spotify {
+    --social-link-tone: var(--clr-social-spotify-soft);
+}
+
+.social-link--steam {
+    --social-link-tone: var(--clr-social-steam-soft);
+}
+
+.social-link--tetrio {
+    --social-link-tone: var(--clr-social-tetrio-soft);
 }
 
 .social-link__icon {

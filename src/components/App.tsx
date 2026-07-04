@@ -6,6 +6,7 @@ interface SocialLink {
     readonly href: string;
     readonly logoAlt: string;
     readonly logoSrc: string;
+    readonly toneClass: string;
 }
 
 const socialLinks: readonly SocialLink[] = [
@@ -14,66 +15,77 @@ const socialLinks: readonly SocialLink[] = [
         href: 'https://www.facebook.com/profile.php?id=100011113621038',
         logoAlt: 'Facebook',
         logoSrc: '/svgl/facebook.svg',
+        toneClass: 'social-link--facebook',
     },
     {
         label: 'Instagram',
         href: 'https://www.instagram.com/ccc_hsi/',
         logoAlt: 'Instagram',
         logoSrc: '/svgl/instagram.svg',
+        toneClass: 'social-link--instagram',
     },
     {
         label: 'Threads',
         href: 'https://www.threads.com/@ccc_hsi',
         logoAlt: 'Threads',
         logoSrc: '/svgl/threads.svg',
+        toneClass: 'social-link--threads',
     },
     {
         label: 'LinkedIn',
         href: 'https://www.linkedin.com/in/its-hsi-chen/',
         logoAlt: 'LinkedIn',
         logoSrc: '/svgl/linkedin.svg',
+        toneClass: 'social-link--linkedin',
     },
     {
         label: 'GitHub',
         href: 'https://github.com/Hsiii',
         logoAlt: 'GitHub',
         logoSrc: '/svgl/github.svg',
+        toneClass: 'social-link--github',
     },
     {
         label: 'Twitter',
         href: 'https://x.com/OrangeSago',
         logoAlt: 'X',
         logoSrc: '/svgl/x.svg',
+        toneClass: 'social-link--twitter',
     },
     {
         label: 'Pixiv',
         href: 'https://www.pixiv.net/users/64764125',
         logoAlt: 'Pixiv',
         logoSrc: '/svgl/pixiv.jpeg',
+        toneClass: 'social-link--pixiv',
     },
     {
         label: 'Discord',
         href: 'discord://-/users/917446775873343600',
         logoAlt: 'Discord',
         logoSrc: '/svgl/discord.svg',
+        toneClass: 'social-link--discord',
     },
     {
         label: 'Spotify',
         href: 'https://open.spotify.com/user/31bturepoosptp5xv2vln3nqz7ca',
         logoAlt: 'Spotify',
         logoSrc: '/svgl/spotify.svg',
+        toneClass: 'social-link--spotify',
     },
     {
         label: 'Steam',
         href: 'https://steamcommunity.com/id/sagocream/',
         logoAlt: 'Steam',
         logoSrc: '/svgl/steam.svg',
+        toneClass: 'social-link--steam',
     },
     {
         label: 'TETR.IO',
         href: 'https://ch.tetr.io/u/sagocream',
         logoAlt: 'TETR.IO',
         logoSrc: '/svgl/tetrio.svg',
+        toneClass: 'social-link--tetrio',
     },
 ];
 
@@ -97,30 +109,32 @@ export function App(): JSX.Element {
                 </header>
 
                 <nav aria-label='Social links' className='social-list'>
-                    {socialLinks.map(({ label, href, logoAlt, logoSrc }) => (
-                        <a
-                            className='social-link'
-                            href={href}
-                            key={label}
-                            rel='noreferrer noopener'
-                            target='_blank'
-                        >
-                            <span aria-hidden className='social-link__icon'>
-                                <Image
-                                    alt={logoAlt}
-                                    className='social-link__logo'
-                                    height={24}
-                                    src={logoSrc}
-                                    width={24}
-                                />
-                            </span>
-                            <span className='social-link__copy'>
-                                <span className='social-link__label'>
-                                    {label}
+                    {socialLinks.map(
+                        ({ label, href, logoAlt, logoSrc, toneClass }) => (
+                            <a
+                                className={`social-link ${toneClass}`}
+                                href={href}
+                                key={label}
+                                rel='noreferrer noopener'
+                                target='_blank'
+                            >
+                                <span aria-hidden className='social-link__icon'>
+                                    <Image
+                                        alt={logoAlt}
+                                        className='social-link__logo'
+                                        height={24}
+                                        src={logoSrc}
+                                        width={24}
+                                    />
                                 </span>
-                            </span>
-                        </a>
-                    ))}
+                                <span className='social-link__copy'>
+                                    <span className='social-link__label'>
+                                        {label}
+                                    </span>
+                                </span>
+                            </a>
+                        )
+                    )}
                 </nav>
 
                 <footer className='identity'>

@@ -11,6 +11,17 @@
     --clr-border: #dce5e2;
     --clr-accent: #0d7f79;
     --clr-image-outline: rgba(0, 0, 0, 0.1);
+    --clr-social-facebook-soft: rgba(24, 119, 242, 0.14);
+    --clr-social-instagram-soft: rgba(225, 48, 108, 0.14);
+    --clr-social-threads-soft: rgba(0, 0, 0, 0.08);
+    --clr-social-linkedin-soft: rgba(10, 102, 194, 0.14);
+    --clr-social-github-soft: rgba(36, 41, 47, 0.1);
+    --clr-social-twitter-soft: rgba(0, 0, 0, 0.08);
+    --clr-social-pixiv-soft: rgba(0, 150, 250, 0.14);
+    --clr-social-discord-soft: rgba(88, 101, 242, 0.14);
+    --clr-social-spotify-soft: rgba(30, 215, 96, 0.14);
+    --clr-social-steam-soft: rgba(23, 26, 33, 0.08);
+    --clr-social-tetrio-soft: rgba(255, 138, 0, 0.14);
     --shadow-surface:
         0 1px 2px rgba(21, 25, 29, 0.08), 0 12px 32px rgba(21, 25, 29, 0.06);
     --shadow-surface-hover:
