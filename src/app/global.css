@@ -236,6 +236,7 @@ a {
     display: inline-flex;
     align-items: center;
     font: var(--font-link);
+    transform: translateY(var(--size-link-label-cap-offset));
 }
 
 @media (min-width: 640px) {

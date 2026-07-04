@@ -35,6 +35,7 @@
     --size-hit-area: 40px;
     --size-link-row: 64px;
     --size-link-logo: 28px;
+    --size-link-label-cap-offset: calc(var(--space-4) / 2);
     --measure-copy: 36ch;
 
     --radius-8: 8px;
