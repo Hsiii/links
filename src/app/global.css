@@ -127,11 +127,6 @@ a {
     object-fit: contain;
 }
 
-.social-link__mark {
-    color: var(--link-accent);
-    font: var(--font-link);
-}
-
 .social-link__copy {
     display: grid;
     gap: var(--space-4);

@@ -16,8 +16,7 @@ interface SocialLink {
     readonly note: string;
     readonly href: string;
     readonly logoAlt: string;
-    readonly logoSrc?: string;
-    readonly mark?: string;
+    readonly logoSrc: string;
     readonly tone: LinkTone;
 }
 
@@ -75,7 +74,7 @@ const socialLinks: readonly SocialLink[] = [
         note: 'art',
         href: 'https://www.pixiv.net/users/64764125',
         logoAlt: 'Pixiv',
-        mark: 'P',
+        logoSrc: '/svgl/pixiv.jpeg',
         tone: 'rose',
     },
     {
@@ -83,7 +82,7 @@ const socialLinks: readonly SocialLink[] = [
         note: 'stacking',
         href: 'https://ch.tetr.io/u/sagocream',
         logoAlt: 'TETR.IO',
-        mark: 'T',
+        logoSrc: '/svgl/tetrio.svg',
         tone: 'green',
     },
     {
@@ -135,15 +134,7 @@ export function App(): JSX.Element {
 
                 <nav aria-label='Social links' className='social-list'>
                     {socialLinks.map(
-                        ({
-                            label,
-                            note,
-                            href,
-                            logoAlt,
-                            logoSrc,
-                            mark,
-                            tone,
-                        }) => (
+                        ({ label, note, href, logoAlt, logoSrc, tone }) => (
                             <a
                                 className={`social-link social-link--${tone}`}
                                 href={href}
@@ -152,19 +143,13 @@ export function App(): JSX.Element {
                                 target='_blank'
                             >
                                 <span aria-hidden className='social-link__icon'>
-                                    {logoSrc === undefined ? (
-                                        <span className='social-link__mark'>
-                                            {mark ?? ''}
-                                        </span>
-                                    ) : (
-                                        <Image
-                                            alt={logoAlt}
-                                            className='social-link__logo'
-                                            height={24}
-                                            src={logoSrc}
-                                            width={24}
-                                        />
-                                    )}
+                                    <Image
+                                        alt={logoAlt}
+                                        className='social-link__logo'
+                                        height={24}
+                                        src={logoSrc}
+                                        width={24}
+                                    />
                                 </span>
                                 <span className='social-link__copy'>
                                     <span className='social-link__label'>
