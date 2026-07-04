@@ -16,13 +16,13 @@ export function ShaderBackground(): JSX.Element {
             colorBack={shaderColors.beige}
             colors={[shaderColors.beige, shaderColors.teal]}
             fit='cover'
-            intensity={0.15}
+            intensity={0.3}
             maxPixelCount={1_200_000}
             noise={0.25}
             scale={1}
             shape='wave'
-            softness={0.5}
-            speed={0.6}
+            softness={0.25}
+            speed={1}
         />
     );
 }
