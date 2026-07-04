@@ -91,6 +91,9 @@ export function App(): JSX.Element {
                         width={104}
                     />
                     <h1 className='identity-card__title'>Hsi Chen</h1>
+                    <p className='identity-card__description'>
+                        Design-focused software developer.
+                    </p>
                 </header>
 
                 <nav aria-label='Social links' className='social-list'>
@@ -122,6 +125,9 @@ export function App(): JSX.Element {
 
                 <footer className='identity'>
                     <h2 className='identity-card__title'>Orange Sago Cream</h2>
+                    <p className='identity-card__description'>
+                        My creative side for art, music, and games.
+                    </p>
                     <Image
                         alt='Orange Sago Cream'
                         className='identity-card__avatar'

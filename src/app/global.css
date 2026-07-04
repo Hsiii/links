@@ -69,6 +69,12 @@ a {
     text-wrap: balance;
 }
 
+.identity-card__description {
+    max-width: var(--measure-copy);
+    color: var(--clr-text-muted);
+    text-wrap: pretty;
+}
+
 .social-list {
     display: grid;
     gap: var(--space-8);
