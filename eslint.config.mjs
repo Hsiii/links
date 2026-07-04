@@ -40,4 +40,11 @@ export default [
             'import-x/no-default-export': 'off',
         },
     },
+
+    {
+        files: ['src/app/robots.ts', 'src/app/sitemap.ts'],
+        rules: {
+            'import-x/no-default-export': 'off',
+        },
+    },
 ];

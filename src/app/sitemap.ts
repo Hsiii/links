@@ -2,7 +2,9 @@ import type { MetadataRoute } from 'next';
 
 const siteUrl = 'https://links.hsichen.dev';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const dynamic = 'force-static';
+
+export default function sitemap(): Readonly<MetadataRoute.Sitemap> {
     return [
         {
             url: siteUrl,
