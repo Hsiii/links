@@ -4,3 +4,5 @@ dist/
 .DS_Store
 .next/
 next-env.d.ts
+.vercel
+.env*
