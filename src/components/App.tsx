@@ -181,7 +181,7 @@ export function App(): JSX.Element {
                             alt='Orange Sago Cream'
                             className='identity-card__avatar'
                             height={104}
-                            src='/favicon.png'
+                            src='/profile/sago.png'
                             width={104}
                         />
                     </footer>

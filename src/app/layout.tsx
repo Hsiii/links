@@ -50,7 +50,10 @@ export const metadata: Metadata = {
         },
     },
     icons: {
-        icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+        icon: [
+            { url: '/favicon.svg', type: 'image/svg+xml' },
+            { url: '/favicon.png', sizes: '256x256', type: 'image/png' },
+        ],
     },
     verification: {
         google: 'U0MZAhyxx3hG4euT-pHfkimkVmT8oOu0dAlgD0OFoaQ',
