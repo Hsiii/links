@@ -1,4 +1,5 @@
 import type { JSX, ReactNode } from 'react';
+import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
 
 import './global.css';
@@ -67,7 +68,10 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
     return (
         <html lang='en'>
-            <body>{children}</body>
+            <body>
+                {children}
+                <Analytics />
+            </body>
         </html>
     );
 }
