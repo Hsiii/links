@@ -10,8 +10,12 @@
     --fw-bold: 700;
 
     --font-body-md: var(--fw-medium) var(--fs-body) / 1.6 var(--ff-body);
+    --font-body-sm: var(--fw-medium) 0.875rem / 1.5 var(--ff-body);
+    --font-body-sm-bold: var(--fw-bold) 0.875rem / 1.25 var(--ff-body);
+    --font-label-sm: var(--fw-bold) 0.75rem / 1.25 var(--ff-body);
     --font-link: var(--fw-bold) var(--fs-link) / 1 var(--ff-body);
     --font-display: var(--fw-bold) var(--fs-title) / 0.96 var(--ff-display);
+    --font-title-sm: var(--fw-bold) 1.5rem / 1.2 var(--ff-display);
 
     --space-4: 4px;
     --space-8: 8px;
@@ -29,9 +33,14 @@
     --size-link-row: 64px;
     --size-link-logo: 28px;
     --size-link-label-cap-offset: calc(var(--space-4) / 2);
+    --size-dialog-max: 360px;
+    --size-qr-code: 264px;
+    --size-qr-frame: 288px;
     --measure-copy: 36ch;
 
     --radius-8: 8px;
+    --radius-16: 16px;
+    --radius-24: 24px;
 }
 
 @media (min-width: 640px) {

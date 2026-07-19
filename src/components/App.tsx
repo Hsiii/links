@@ -1,6 +1,7 @@
 import type { JSX } from 'react';
 import Image from 'next/image';
 
+import { QRCodeDialog } from '@/components/QRCodeDialog';
 import { ShaderBackground } from '@/components/ShaderBackground';
 
 interface SocialLink {
@@ -123,6 +124,7 @@ export function App(): JSX.Element {
             <main className='app'>
                 <ShaderBackground />
                 <div className='linktree'>
+                    <QRCodeDialog />
                     <header className='identity identity--hsi'>
                         <Image
                             alt='Hsi Chen'

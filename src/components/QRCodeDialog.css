@@ -1,0 +1,203 @@
+.qr-trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: var(--size-hit-area);
+    height: var(--size-hit-area);
+    color: var(--clr-text);
+    background: var(--clr-surface-glass);
+    -webkit-backdrop-filter: blur(var(--space-16)) saturate(1.08);
+    backdrop-filter: blur(var(--space-16)) saturate(1.08);
+    border: var(--size-border-1) solid var(--clr-image-outline);
+    border-radius: 50%;
+    box-shadow: var(--shadow-surface);
+    cursor: pointer;
+    transition-duration: 180ms;
+    transition-property: box-shadow, transform;
+    transition-timing-function: var(--ease-out);
+}
+
+.qr-trigger:hover {
+    box-shadow: var(--shadow-surface-hover);
+    transform: translateY(calc(var(--space-4) / -2));
+}
+
+.qr-trigger:active {
+    transform: scale(0.92);
+}
+
+.qr-dialog {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    max-height: none;
+    padding: var(--space-16);
+    overflow: auto;
+    color: var(--clr-text);
+    background: transparent;
+    border: 0;
+}
+
+.qr-dialog[open] {
+    display: grid;
+    place-items: center;
+}
+
+.qr-dialog::backdrop {
+    background: var(--clr-dialog-backdrop);
+    -webkit-backdrop-filter: blur(var(--space-8));
+    backdrop-filter: blur(var(--space-8));
+}
+
+.qr-dialog__surface {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    gap: var(--space-16);
+    width: min(100%, var(--size-dialog-max));
+    padding: var(--space-24);
+    text-align: center;
+    background: var(--clr-dialog-surface);
+    border: var(--size-border-1) solid var(--clr-dialog-border);
+    border-radius: var(--radius-24);
+    box-shadow: var(--shadow-dialog);
+    animation: qr-dialog-enter 240ms var(--ease-out) both;
+}
+
+.qr-dialog__close {
+    position: absolute;
+    top: var(--space-12);
+    right: var(--space-12);
+    display: grid;
+    place-items: center;
+    width: var(--size-hit-area);
+    height: var(--size-hit-area);
+    color: var(--clr-text-muted);
+    background: var(--clr-surface-muted);
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.qr-dialog__close:hover {
+    color: var(--clr-text);
+}
+
+.qr-dialog__heading {
+    display: grid;
+    gap: var(--space-4);
+    padding-inline: var(--space-24);
+}
+
+.qr-dialog__eyebrow {
+    color: var(--clr-accent);
+    font: var(--font-label-sm);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.qr-dialog__title {
+    font: var(--font-title-sm);
+    text-wrap: balance;
+}
+
+.qr-dialog__description {
+    color: var(--clr-text-muted);
+    font: var(--font-body-sm);
+}
+
+.qr-dialog__qr-frame {
+    display: grid;
+    place-items: center;
+    width: min(100%, var(--size-qr-frame));
+    padding: var(--space-12);
+    background: var(--clr-qr-background);
+    border-radius: var(--radius-16);
+    box-shadow: var(--shadow-qr-frame);
+}
+
+.qr-dialog__qr {
+    width: var(--size-qr-code);
+    max-width: 100%;
+    aspect-ratio: 1;
+}
+
+.qr-dialog__qr-error {
+    display: grid;
+    place-items: center;
+    width: var(--size-qr-code);
+    max-width: 100%;
+    aspect-ratio: 1;
+    padding: var(--space-24);
+    color: var(--clr-text-muted);
+    font: var(--font-body-sm);
+}
+
+.qr-dialog__qr svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.qr-dialog__url {
+    color: var(--clr-text-muted);
+    font: var(--font-body-sm);
+    overflow-wrap: anywhere;
+    text-underline-offset: var(--space-4);
+}
+
+.qr-dialog__copy-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-8);
+    width: 100%;
+    min-height: var(--size-hit-area);
+    padding: var(--space-8) var(--space-16);
+    color: var(--clr-action-text);
+    font: var(--font-body-sm-bold);
+    background: var(--gradient-action);
+    border: 0;
+    border-radius: var(--radius-8);
+    box-shadow: var(--shadow-action);
+    cursor: pointer;
+    transition-duration: 180ms;
+    transition-property: box-shadow, transform;
+    transition-timing-function: var(--ease-out);
+}
+
+.qr-dialog__copy-button:hover {
+    box-shadow: var(--shadow-action-hover);
+}
+
+.qr-dialog__copy-button:active {
+    transform: scale(0.96);
+}
+
+@keyframes qr-dialog-enter {
+    from {
+        opacity: 0;
+        transform: translateY(var(--space-8)) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .qr-dialog__surface {
+        animation: none;
+    }
+
+    .qr-dialog__copy-button,
+    .qr-trigger {
+        transition: none;
+    }
+}
