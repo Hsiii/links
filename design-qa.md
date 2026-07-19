@@ -1,13 +1,13 @@
 # Design QA
 
-- Source visual truth: `/tmp/links-qr-final/02-desktop-dialog.png`, with the
-  browser annotations attached to this task defining the requested dimension
-  and offset changes.
+- Source visual truth:
+  `/tmp/links-qr-annotation-round2/01-desktop-dialog.png`, with the browser
+  annotation attached to this task defining the requested 24px title offset.
 - Implementation screenshot:
-  `/tmp/links-qr-annotation-round2/01-desktop-dialog.png`.
+  `/tmp/links-qr-header-spacing/01-desktop-dialog.png`.
 - Full-view comparison evidence:
-  `/tmp/links-qr-annotation-round2/03-desktop-comparison.png`.
-- Mobile evidence: `/tmp/links-qr-annotation-round2/02-mobile-dialog.png`.
+  `/tmp/links-qr-header-spacing/03-desktop-comparison.png`.
+- Mobile evidence: `/tmp/links-qr-header-spacing/02-mobile-dialog.png`.
 - Viewports: 1357 × 987 desktop and 390 × 844 mobile.
 - State: open QR dialog, plus copied, dismissed, and reopened interaction checks.
 
@@ -16,12 +16,16 @@
 No actionable P0, P1, or P2 differences remain.
 
 - Fonts and typography: the existing IBM Plex Sans family, title weight, URL
-  size, line heights, and wrapping are unchanged. The title remains centered.
+  size, line heights, and wrapping are unchanged. The title remains centered
+  and keeps its default zero margin.
 - Spacing and layout rhythm: the surface measures exactly 320 × 400px with 12px
   inline padding. The QR uses -16px top and -24px bottom margins. The copy
   control uses the nearest token-aligned offset, -8px instead of the annotated
   -10px. The close control is independently positioned 12px from the surface's
-  top-right corner. Mobile has no horizontal overflow.
+  top-right corner. The header wrapper owns the new 24px top inset through the
+  existing `--space-24` token, placing the title 49px from the bordered surface
+  edge without a heading-specific magic number. Mobile has no horizontal
+  overflow.
 - Colors and visual tokens: the existing dialog surface, backdrop, text, and
   continuous QR gradient remain unchanged.
 - Image quality and asset fidelity: the 264px QR remains sharp SVG, uses one
@@ -52,6 +56,10 @@ offset without an additional crop.
   overlap, moved close out of the header row, and tightened the copy spacing.
 - Post-fix evidence: computed browser measurements match the requested values,
   except the intentional -8px tokenized copy offset documented above.
+- Requested header inset: added tokenized top padding to the header layout
+  wrapper instead of a one-off title margin. Post-fix evidence shows 24px
+  computed header padding, 0px title margin, and the title 49px from the surface
+  border at both tested viewports.
 
 ## Follow-up Polish
 

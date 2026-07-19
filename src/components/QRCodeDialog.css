@@ -90,6 +90,7 @@
 
 .qr-dialog__header {
     width: 100%;
+    padding-top: var(--space-24);
 }
 
 .qr-dialog__title {
