@@ -8,6 +8,7 @@ import {
     QrCodeIcon,
     XIcon,
 } from '@phosphor-icons/react';
+import type { Gradient } from 'qr-code-styling';
 
 import './QRCodeDialog.css';
 
@@ -19,6 +20,29 @@ function getColorToken(name: string): string {
         .trim();
 }
 
+function unifyQrGradient(container: HTMLDivElement) {
+    const svg = container.querySelector('svg');
+    const sharedGradient = svg?.querySelector<SVGLinearGradientElement>(
+        'linearGradient[id^="dot-color"]'
+    );
+
+    if (!svg || !sharedGradient) {
+        return;
+    }
+
+    const sharedFill = `url('#${sharedGradient.id}')`;
+
+    for (const element of svg.querySelectorAll<SVGElement>('[fill^="url"]')) {
+        element.setAttribute('fill', sharedFill);
+    }
+
+    for (const gradient of svg.querySelectorAll('linearGradient')) {
+        if (gradient !== sharedGradient) {
+            gradient.remove();
+        }
+    }
+}
+
 export function QRCodeDialog(): JSX.Element {
     const dialogRef = useRef<HTMLDialogElement>(null);
     const qrCodeRef = useRef<HTMLDivElement>(null);
@@ -26,6 +50,19 @@ export function QRCodeDialog(): JSX.Element {
     const copiedResetRef = useRef<ReturnType<typeof setTimeout>>(undefined);
     const [copied, setCopied] = useState(false);
     const [qrCodeFailed, setQrCodeFailed] = useState(false);
+
+    function showDialog() {
+        const dialog = dialogRef.current;
+
+        if (!dialog || dialog.open) {
+            return;
+        }
+
+        dialog.showModal();
+        dialog
+            .querySelector<HTMLElement>('.qr-dialog__title')
+            ?.focus({ preventScroll: true });
+    }
 
     useEffect(() => {
         let isActive = true;
@@ -37,51 +74,54 @@ export function QRCodeDialog(): JSX.Element {
                 return;
             }
 
+            const qrGradient: Gradient = {
+                type: 'linear',
+                rotation: Math.PI / 4,
+                colorStops: [
+                    {
+                        offset: 0,
+                        color: getColorToken('--clr-qr-blue'),
+                    },
+                    {
+                        offset: 0.52,
+                        color: getColorToken('--clr-accent'),
+                    },
+                    {
+                        offset: 1,
+                        color: getColorToken('--clr-text'),
+                    },
+                ],
+            };
+
             const qrCode = new QRCodeStyling({
                 width: 264,
                 height: 264,
                 type: 'svg',
                 data: siteUrl,
-                margin: 0,
+                margin: 12,
                 qrOptions: {
                     errorCorrectionLevel: 'H',
                 },
                 dotsOptions: {
                     type: 'dots',
-                    gradient: {
-                        type: 'linear',
-                        rotation: Math.PI / 4,
-                        colorStops: [
-                            {
-                                offset: 0,
-                                color: getColorToken('--clr-qr-blue'),
-                            },
-                            {
-                                offset: 0.52,
-                                color: getColorToken('--clr-accent'),
-                            },
-                            {
-                                offset: 1,
-                                color: getColorToken('--clr-text'),
-                            },
-                        ],
-                    },
+                    gradient: qrGradient,
                 },
                 cornersSquareOptions: {
-                    color: getColorToken('--clr-text'),
+                    gradient: qrGradient,
                     type: 'extra-rounded',
                 },
                 cornersDotOptions: {
-                    color: getColorToken('--clr-accent'),
+                    gradient: qrGradient,
                     type: 'dot',
                 },
                 backgroundOptions: {
-                    color: getColorToken('--clr-qr-background'),
+                    color: 'transparent',
                 },
             });
 
             qrCodeRef.current.textContent = '';
             qrCode.append(qrCodeRef.current);
+            unifyQrGradient(qrCodeRef.current);
         }
 
         renderQrCode().catch(() => {
@@ -107,7 +147,7 @@ export function QRCodeDialog(): JSX.Element {
             dialog &&
             !dialog.open
         ) {
-            dialog.showModal();
+            showDialog();
         }
     }, []);
 
@@ -122,7 +162,7 @@ export function QRCodeDialog(): JSX.Element {
 
     function openDialog() {
         setCopied(false);
-        dialogRef.current?.showModal();
+        showDialog();
     }
 
     function closeDialog() {
@@ -172,7 +212,7 @@ export function QRCodeDialog(): JSX.Element {
                 title='Show QR code'
                 type='button'
             >
-                <QrCodeIcon aria-hidden size={24} weight='bold' />
+                <QrCodeIcon aria-hidden size={20} weight='regular' />
             </button>
 
             <dialog
@@ -186,35 +226,36 @@ export function QRCodeDialog(): JSX.Element {
                 ref={dialogRef}
             >
                 <section className='qr-dialog__surface'>
-                    <button
-                        aria-label='Close QR code'
-                        className='qr-dialog__close'
-                        onClick={closeDialog}
-                        type='button'
-                    >
-                        <XIcon aria-hidden size={20} weight='bold' />
-                    </button>
-
-                    <div className='qr-dialog__heading'>
-                        <h2 className='qr-dialog__title' id='qr-dialog-title'>
+                    <div className='qr-dialog__header'>
+                        <h2
+                            className='qr-dialog__title'
+                            id='qr-dialog-title'
+                            tabIndex={-1}
+                        >
                             Scan to open my links
                         </h2>
+                        <button
+                            aria-label='Close QR code'
+                            className='qr-dialog__close'
+                            onClick={closeDialog}
+                            type='button'
+                        >
+                            <XIcon aria-hidden size={20} weight='regular' />
+                        </button>
                     </div>
 
-                    <div className='qr-dialog__qr-frame'>
-                        {qrCodeFailed ? (
-                            <p className='qr-dialog__qr-error'>
-                                The QR code could not load. Use the link below.
-                            </p>
-                        ) : (
-                            <div
-                                aria-label={`QR code for ${siteUrl}`}
-                                className='qr-dialog__qr'
-                                ref={qrCodeRef}
-                                role='img'
-                            />
-                        )}
-                    </div>
+                    {qrCodeFailed ? (
+                        <p className='qr-dialog__qr-error'>
+                            The QR code could not load. Use the link below.
+                        </p>
+                    ) : (
+                        <div
+                            aria-label={`QR code for ${siteUrl}`}
+                            className='qr-dialog__qr'
+                            ref={qrCodeRef}
+                            role='img'
+                        />
+                    )}
 
                     <div className='qr-dialog__link-row'>
                         <a className='qr-dialog__url' href={siteUrl}>
@@ -231,14 +272,14 @@ export function QRCodeDialog(): JSX.Element {
                             {copied ? (
                                 <CheckIcon
                                     aria-hidden
-                                    size={20}
-                                    weight='bold'
+                                    size={16}
+                                    weight='regular'
                                 />
                             ) : (
                                 <CopySimpleIcon
                                     aria-hidden
-                                    size={20}
-                                    weight='bold'
+                                    size={16}
+                                    weight='regular'
                                 />
                             )}
                         </button>

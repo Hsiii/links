@@ -28,12 +28,12 @@
     --size-profile-avatar: 104px;
     --size-content-max: 480px;
     --size-hit-area: 40px;
+    --size-icon-control: 32px;
     --size-link-row: 64px;
     --size-link-logo: 28px;
     --size-link-label-cap-offset: calc(var(--space-4) / 2);
     --size-dialog-max: 360px;
     --size-qr-code: 264px;
-    --size-qr-frame: 288px;
     --measure-copy: 36ch;
 
     --radius-8: 8px;
