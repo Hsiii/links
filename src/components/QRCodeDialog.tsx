@@ -226,6 +226,15 @@ export function QRCodeDialog(): JSX.Element {
                 ref={dialogRef}
             >
                 <section className='qr-dialog__surface'>
+                    <button
+                        aria-label='Close QR code'
+                        className='qr-dialog__close'
+                        onClick={closeDialog}
+                        type='button'
+                    >
+                        <XIcon aria-hidden size={20} weight='regular' />
+                    </button>
+
                     <div className='qr-dialog__header'>
                         <h2
                             className='qr-dialog__title'
@@ -234,14 +243,6 @@ export function QRCodeDialog(): JSX.Element {
                         >
                             Scan to open my links
                         </h2>
-                        <button
-                            aria-label='Close QR code'
-                            className='qr-dialog__close'
-                            onClick={closeDialog}
-                            type='button'
-                        >
-                            <XIcon aria-hidden size={20} weight='regular' />
-                        </button>
                     </div>
 
                     {qrCodeFailed ? (

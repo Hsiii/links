@@ -32,7 +32,8 @@
     --size-link-row: 64px;
     --size-link-logo: 28px;
     --size-link-label-cap-offset: calc(var(--space-4) / 2);
-    --size-dialog-max: 360px;
+    --size-dialog-max: 320px;
+    --size-dialog-height: 400px;
     --size-qr-code: 264px;
     --measure-copy: 36ch;
 

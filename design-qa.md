@@ -1,62 +1,57 @@
 # Design QA
 
-- Source visual truth: `/tmp/links-qr-design-qa/00-source-desktop.png` (the
-  committed page before this change).
-- Implementation screenshot: `/tmp/links-qr-final/02-desktop-dialog.png`.
-- Closed-state evidence: `/tmp/links-qr-final/03-desktop-trigger.png`.
-- Mobile evidence: `/tmp/links-qr-final/01-mobile-dialog.png`.
+- Source visual truth: `/tmp/links-qr-final/02-desktop-dialog.png`, with the
+  browser annotations attached to this task defining the requested dimension
+  and offset changes.
+- Implementation screenshot:
+  `/tmp/links-qr-annotation-round2/01-desktop-dialog.png`.
+- Full-view comparison evidence:
+  `/tmp/links-qr-annotation-round2/03-desktop-comparison.png`.
+- Mobile evidence: `/tmp/links-qr-annotation-round2/02-mobile-dialog.png`.
 - Viewports: 1357 × 987 desktop and 390 × 844 mobile.
-- States: default page, open dialog, copied confirmation, presentation query,
-  keyboard dismissal, and backdrop dismissal.
+- State: open QR dialog, plus copied, dismissed, and reopened interaction checks.
 
 ## Findings
 
-No actionable P0, P1, or P2 issues remain.
+No actionable P0, P1, or P2 differences remain.
 
-- Fonts and typography: the existing IBM Plex Sans stack, heading hierarchy,
-  weights, line heights, and social-link copy are unchanged. Dialog typography
-  uses the same font tokens and remains legible at both tested viewports.
-- Spacing and layout rhythm: the source and implementation retain identical
-  identity and social-list geometry. At 800px, the identity starts at 64px and
-  the social list at 297.758px in both versions. The 32px QR trigger is removed
-  from grid flow with fixed viewport positioning. The mobile page has no
-  horizontal overflow.
-- Colors and visual tokens: the dialog extends the existing beige, teal, blue,
-  and ink palette through tokens. The QR applies one continuous gradient to its
-  rounded dots and all three locator eyes.
-- Image quality and asset fidelity: the QR renders as uninterrupted SVG dots at
-  264px without a center image or a separate frame. Its transparent quiet area
-  sits directly on the dialog surface. The captured QR was decoded successfully
-  as `https://links.hsichen.dev`.
-- Copy and content: the dialog states the scan action once, exposes the
-  destination URL, and keeps its secondary copy action compact beside the URL.
+- Fonts and typography: the existing IBM Plex Sans family, title weight, URL
+  size, line heights, and wrapping are unchanged. The title remains centered.
+- Spacing and layout rhythm: the surface measures exactly 320 × 400px with 12px
+  inline padding. The QR uses -16px top and -24px bottom margins. The copy
+  control uses the nearest token-aligned offset, -8px instead of the annotated
+  -10px. The close control is independently positioned 12px from the surface's
+  top-right corner. Mobile has no horizontal overflow.
+- Colors and visual tokens: the existing dialog surface, backdrop, text, and
+  continuous QR gradient remain unchanged.
+- Image quality and asset fidelity: the 264px QR remains sharp SVG, uses one
+  shared gradient across dots and anchors, and decodes successfully as
+  `https://links.hsichen.dev` after the spacing changes.
+- Copy and content: the heading, destination URL, labels, and success state are
+  unchanged.
 
 ## Focused Region Comparison
 
-The dialog was inspected separately because it has no pre-existing source state.
-The desktop and mobile captures confirm that the QR remains square and sharp,
-its quiet area sits directly on the dialog surface, the heading and close control
-share a vertically centered row, and the centered URL remains independent of its
-adjacent copy icon. A separate crop was not needed because the dialog occupies
-most of each captured viewport and all details are readable.
+The full-view comparison shows the previous dialog on the left and the annotated
+implementation on the right. The dialog region is large enough to judge the
+surface dimensions, QR spacing, close placement, URL alignment, and copy-icon
+offset without an additional crop.
 
 ## Interaction And Accessibility Checks
 
-- The native modal has an accessible name.
-- Focus moves into the dialog and returns to the QR trigger after dismissal.
-- Close button, backdrop click, and Escape all dismiss the dialog.
-- `?qr=1` opens presentation mode automatically after hydration.
-- The copy action changes to an `aria-live` “Copied” confirmation after the
-  Clipboard API resolves.
-- Reduced-motion users do not receive the entry animation.
+- The native modal retains its accessible name.
+- Focus enters the title and returns to the QR trigger after dismissal.
+- Copy confirmation, close, and reopen interactions pass.
+- The 390 × 844 layout is fully visible without horizontal overflow.
 - Browser console errors checked: none.
 
 ## Comparison History
 
-- Earlier P2: automated keyboard testing did not dismiss the dialog with Escape.
-  Fix: added explicit Escape handling on the dialog while retaining native modal
-  behavior. Post-fix evidence: `dialogOpen: false` and focus restored to
-  `Show QR code`.
+- Requested density pass: changed the surface from 360px wide to 320px, set its
+  height to 400px, reduced inline padding to 12px, applied the annotated QR
+  overlap, moved close out of the header row, and tightened the copy spacing.
+- Post-fix evidence: computed browser measurements match the requested values,
+  except the intentional -8px tokenized copy offset documented above.
 
 ## Follow-up Polish
 

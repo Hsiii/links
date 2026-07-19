@@ -60,7 +60,8 @@
     justify-items: center;
     gap: var(--space-16);
     width: min(100%, var(--size-dialog-max));
-    padding: var(--space-24);
+    height: var(--size-dialog-height);
+    padding: var(--space-24) var(--space-12);
     text-align: center;
     background: var(--clr-dialog-surface);
     border: var(--size-border-1) solid var(--clr-dialog-border);
@@ -70,6 +71,9 @@
 }
 
 .qr-dialog__close {
+    position: absolute;
+    top: var(--space-12);
+    right: var(--space-12);
     display: grid;
     place-items: center;
     width: var(--size-icon-control);
@@ -85,14 +89,10 @@
 }
 
 .qr-dialog__header {
-    display: grid;
-    grid-template-columns: var(--size-icon-control) 1fr var(--size-icon-control);
-    align-items: center;
     width: 100%;
 }
 
 .qr-dialog__title {
-    grid-column: 2;
     font: var(--font-title-sm);
     text-wrap: balance;
 }
@@ -101,14 +101,11 @@
     outline: none;
 }
 
-.qr-dialog__close {
-    grid-column: 3;
-}
-
 .qr-dialog__qr {
     width: var(--size-qr-code);
     max-width: 100%;
     aspect-ratio: 1;
+    margin-block: calc(var(--space-16) * -1) calc(var(--space-24) * -1);
 }
 
 .qr-dialog__qr-error {
@@ -158,6 +155,7 @@
     cursor: pointer;
     grid-column: 3;
     justify-self: start;
+    margin-left: calc(var(--space-8) * -1);
 }
 
 .qr-dialog__copy-button:hover {
