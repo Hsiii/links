@@ -7,26 +7,22 @@
     place-items: center;
     width: var(--size-hit-area);
     height: var(--size-hit-area);
-    color: var(--clr-text);
-    background: var(--clr-surface-glass);
-    -webkit-backdrop-filter: blur(var(--space-16)) saturate(1.08);
-    backdrop-filter: blur(var(--space-16)) saturate(1.08);
-    border: var(--size-border-1) solid var(--clr-image-outline);
+    color: var(--clr-qr-trigger-icon);
+    background: var(--clr-qr-trigger);
+    border: var(--size-border-1) solid var(--clr-qr-trigger-border);
     border-radius: 50%;
-    box-shadow: var(--shadow-surface);
+    box-shadow: none;
     cursor: pointer;
-    transition-duration: 180ms;
-    transition-property: box-shadow, transform;
-    transition-timing-function: var(--ease-out);
+    transition: none;
 }
 
 .qr-trigger:hover {
-    box-shadow: var(--shadow-surface-hover);
-    transform: translateY(calc(var(--space-4) / -2));
+    color: var(--clr-text-muted);
+    background: var(--clr-qr-trigger-hover);
 }
 
 .qr-trigger:active {
-    transform: scale(0.92);
+    background: var(--clr-surface-muted);
 }
 
 .qr-dialog {
@@ -90,25 +86,12 @@
 
 .qr-dialog__heading {
     display: grid;
-    gap: var(--space-4);
     padding-inline: var(--space-24);
-}
-
-.qr-dialog__eyebrow {
-    color: var(--clr-accent);
-    font: var(--font-label-sm);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
 }
 
 .qr-dialog__title {
     font: var(--font-title-sm);
     text-wrap: balance;
-}
-
-.qr-dialog__description {
-    color: var(--clr-text-muted);
-    font: var(--font-body-sm);
 }
 
 .qr-dialog__qr-frame {
@@ -151,32 +134,27 @@
     text-underline-offset: var(--space-4);
 }
 
-.qr-dialog__copy-button {
-    display: inline-flex;
+.qr-dialog__link-row {
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: var(--space-8);
-    width: 100%;
-    min-height: var(--size-hit-area);
-    padding: var(--space-8) var(--space-16);
-    color: var(--clr-action-text);
-    font: var(--font-body-sm-bold);
-    background: var(--gradient-action);
-    border: 0;
-    border-radius: var(--radius-8);
-    box-shadow: var(--shadow-action);
+}
+
+.qr-dialog__copy-button {
+    display: grid;
+    place-items: center;
+    width: var(--size-hit-area);
+    height: var(--size-hit-area);
+    color: var(--clr-text-muted);
+    background: var(--clr-surface-muted);
+    border: var(--size-border-1) solid var(--clr-image-outline);
+    border-radius: 50%;
     cursor: pointer;
-    transition-duration: 180ms;
-    transition-property: box-shadow, transform;
-    transition-timing-function: var(--ease-out);
 }
 
 .qr-dialog__copy-button:hover {
-    box-shadow: var(--shadow-action-hover);
-}
-
-.qr-dialog__copy-button:active {
-    transform: scale(0.96);
+    color: var(--clr-text);
 }
 
 @keyframes qr-dialog-enter {
@@ -194,10 +172,5 @@
 @media (prefers-reduced-motion: reduce) {
     .qr-dialog__surface {
         animation: none;
-    }
-
-    .qr-dialog__copy-button,
-    .qr-trigger {
-        transition: none;
     }
 }

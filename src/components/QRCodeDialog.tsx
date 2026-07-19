@@ -42,15 +42,9 @@ export function QRCodeDialog(): JSX.Element {
                 height: 264,
                 type: 'svg',
                 data: siteUrl,
-                image: '/favicon.svg',
                 margin: 0,
                 qrOptions: {
                     errorCorrectionLevel: 'H',
-                },
-                imageOptions: {
-                    hideBackgroundDots: true,
-                    imageSize: 0.2,
-                    margin: 8,
                 },
                 dotsOptions: {
                     type: 'dots',
@@ -182,7 +176,6 @@ export function QRCodeDialog(): JSX.Element {
             </button>
 
             <dialog
-                aria-describedby='qr-dialog-description'
                 aria-labelledby='qr-dialog-title'
                 className='qr-dialog'
                 onClick={closeFromBackdrop}
@@ -203,16 +196,9 @@ export function QRCodeDialog(): JSX.Element {
                     </button>
 
                     <div className='qr-dialog__heading'>
-                        <p className='qr-dialog__eyebrow'>Take this with you</p>
                         <h2 className='qr-dialog__title' id='qr-dialog-title'>
                             Scan to open my links
                         </h2>
-                        <p
-                            className='qr-dialog__description'
-                            id='qr-dialog-description'
-                        >
-                            Point your phone camera at the code.
-                        </p>
                     </div>
 
                     <div className='qr-dialog__qr-frame'>
@@ -230,27 +216,33 @@ export function QRCodeDialog(): JSX.Element {
                         )}
                     </div>
 
-                    <a className='qr-dialog__url' href={siteUrl}>
-                        links.hsichen.dev
-                    </a>
-
-                    <button
-                        aria-live='polite'
-                        className='qr-dialog__copy-button'
-                        onClick={handleCopyLink}
-                        type='button'
-                    >
-                        {copied ? (
-                            <CheckIcon aria-hidden size={20} weight='bold' />
-                        ) : (
-                            <CopySimpleIcon
-                                aria-hidden
-                                size={20}
-                                weight='bold'
-                            />
-                        )}
-                        {copied ? 'Copied' : 'Copy link'}
-                    </button>
+                    <div className='qr-dialog__link-row'>
+                        <a className='qr-dialog__url' href={siteUrl}>
+                            links.hsichen.dev
+                        </a>
+                        <button
+                            aria-label={copied ? 'Copied link' : 'Copy link'}
+                            aria-live='polite'
+                            className='qr-dialog__copy-button'
+                            onClick={handleCopyLink}
+                            title={copied ? 'Copied' : 'Copy link'}
+                            type='button'
+                        >
+                            {copied ? (
+                                <CheckIcon
+                                    aria-hidden
+                                    size={20}
+                                    weight='bold'
+                                />
+                            ) : (
+                                <CopySimpleIcon
+                                    aria-hidden
+                                    size={20}
+                                    weight='bold'
+                                />
+                            )}
+                        </button>
+                    </div>
                 </section>
             </dialog>
         </>

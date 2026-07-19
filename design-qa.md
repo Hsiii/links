@@ -2,12 +2,10 @@
 
 - Source visual truth: `/tmp/links-qr-design-qa/00-source-desktop.png` (the
   committed page before this change).
-- Implementation screenshot:
-  `/tmp/links-qr-design-qa/09-open-desktop-final.png`.
+- Implementation screenshot: `/tmp/links-qr-annotation/04-final.png`.
 - Closed-state comparison:
   `/tmp/links-qr-design-qa/08-closed-comparison-final.png`.
-- Mobile evidence: `/tmp/links-qr-design-qa/03-closed-mobile.png` and
-  `/tmp/links-qr-design-qa/04-open-mobile.png`.
+- Mobile evidence: `/tmp/links-qr-annotation/05-mobile-final.png`.
 - Viewports: 800 × 900 desktop and 390 × 844 mobile.
 - States: default page, open dialog, copied confirmation, presentation query,
   keyboard dismissal, and backdrop dismissal.
@@ -28,11 +26,11 @@ No actionable P0, P1, or P2 issues remain.
   and ink palette through tokens. The QR borrows the rounded-dot and gradient
   treatment of Instagram profile codes while keeping its locator eyes dark for
   contrast.
-- Image quality and asset fidelity: the QR renders as SVG at 264px with the
-  existing favicon as its center mark. The captured QR was decoded successfully
-  as `https://links.hsichen.dev`.
-- Copy and content: the dialog clearly states the scan action, exposes the
-  destination URL, and provides a secondary copy action.
+- Image quality and asset fidelity: the QR renders as uninterrupted SVG dots at
+  264px without a center image. The captured QR was decoded successfully as
+  `https://links.hsichen.dev`.
+- Copy and content: the dialog states the scan action once, exposes the
+  destination URL, and keeps its secondary copy action compact beside the URL.
 
 ## Focused Region Comparison
 
